@@ -15,3 +15,8 @@ We have run the SQL server and RabbitMq and our APIs on Kubernetes. So it has pr
 
 # About project
 In this project, we have 2 services. Platform service and Command service. There is a one-to-many relationship between Platform and Command service. Platfrom service is an API which it has got its own database and project and language, however we use .net core api for both of these projects. Command services is another project with its own database and project too. But the command services is related with platform services and platform services has its own databases. To be aware about platform services when a platform added to platform database, we can use a Message broker which in this project, we have used RabbitMq that is provide Asynchronous communication between these two services. In addition, there is a K8S folder that is includes all of kubernetes yaml file which provide management of containerized APIs and applications like Sql server and RabbitMq. Finally you have 2 APIs which talking to each other. In ohter words, when a platforms add, platfrom service send informations about platform that has been added to the message broker and on the other side, command service listen to the message broker and when a new platform added, it will get the platgform information through the message broker and then it can use those information or store them in the database and etc.
+
+To have better understanding about above definition, visit below links.
+<a href="https://kubernetes.io/docs/home/">Kubernetes</a>
+<a href="https://www.ibm.com/cloud/learn/docker">What is Docker (IBM)</a>
+<a href="https://www.ibm.com/cloud/learn/message-brokers">What is message broker (IBM)</a>
